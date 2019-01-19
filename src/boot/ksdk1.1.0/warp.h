@@ -40,7 +40,7 @@ typedef enum
 	
 	kWarpTypeMaskTotalVOC		= (1 << 28),
 	kWarpTypeMaskEquivalentCO2	= (1 << 29),
-
+	kWarpTypeMaskCurrent		= (1 << 30),
 
 	/*
 	 *	Always keep these two as the last items.
@@ -152,6 +152,7 @@ typedef enum
 	kWarpSensorAS7262,
 	kWarpSensorAS7263,
 	kWarpSensorSCD30,
+	kWarpSensorINA219,
 } WarpSensorDevice;
 
 typedef enum

@@ -43,7 +43,7 @@ SET(CMAKE_ASM_FLAGS_RELEASE "${CMAKE_ASM_FLAGS_RELEASE} -mcpu=cortex-m0plus  -mt
 SET(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -mcpu=cortex-m0plus  -mthumb  -MMD  -MP  -Wall  -fno-common  -ffunction-sections  -fdata-sections  -ffreestanding  -fno-builtin  -Os  -mapcs  -std=gnu99 -fshort-enums")
 
 # RELEASE LD FLAGS
-SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} --specs=nano.specs  -lm  -Wall  -fno-common  -ffunction-sections  -fdata-sections  -ffreestanding  -fno-builtin  -Os  -mthumb  -mapcs  -Xlinker --gc-sections  -Xlinker -static  -Xlinker -z  -Xlinker muldefs  -Xlinker --defsym=__stack_size__=0x200  -Xlinker --defsym=__heap_size__=0x50")
+SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} --specs=nano.specs  -lm  -Wall  -fno-common  -ffunction-sections  -fdata-sections  -ffreestanding  -fno-builtin  -Os  -mthumb  -mapcs  -Xlinker --gc-sections  -Xlinker -static  -Xlinker -z  -Xlinker muldefs  -Xlinker --defsym=__stack_size__=0x200  -Xlinker --defsym=__heap_size__=0x00")
 
 # ASM MACRO
 SET(CMAKE_ASM_FLAGS_DEBUG "${CMAKE_ASM_FLAGS_DEBUG}  -DDEBUG")
@@ -104,6 +104,8 @@ ADD_EXECUTABLE(Warp
     "${ProjDirPath}/../../src/devAMG8834.c"
     "${ProjDirPath}/../../src/devPAN1326.c"
     "${ProjDirPath}/../../src/devAS7262.c"
+    "${ProjDirPath}/../../src/devSSD1331.c"
+    "${ProjDirPath}/../../src/devSSD1331.h"
     "${ProjDirPath}/../../src/devAS7263.c"
     "${ProjDirPath}/../../src/SEGGER_RTT.c"
     "${ProjDirPath}/../../src/SEGGER_RTT_printf.c"
@@ -114,6 +116,10 @@ ADD_EXECUTABLE(Warp
     "${ProjDirPath}/../../../../platform/startup/startup.h"
     "${ProjDirPath}/../../../../boards/Warp/gpio_pins.c"
     "${ProjDirPath}/../../../../boards/Warp/gpio_pins.h"
+    "${ProjDirPath}/../../src/devINA219.c"
+    "${ProjDirPath}/../../src/devINA219.h"
+    "${ProjDirPath}/../../src/devMPU6050.h"
+    "${ProjDirPath}/../../src/devMPU6050.c"
 )
 SET_TARGET_PROPERTIES(Warp PROPERTIES OUTPUT_NAME "Warp.elf")
 
